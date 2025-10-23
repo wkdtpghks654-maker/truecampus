@@ -288,6 +288,52 @@
             opacity: 0.9;
         }
 
+        .feature-short {
+            display: block;
+        }
+
+        .feature-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.4s ease;
+            opacity: 0;
+        }
+
+        .feature-detail.expanded {
+            max-height: 500px;
+            margin-top: 15px;
+            opacity: 1;
+        }
+
+        .feature-detail p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #e9f2ff;
+            opacity: 0.95;
+            margin: 0;
+        }
+
+        .expand-indicator {
+            margin-top: 15px;
+            font-size: 14px;
+            color: var(--brand-blue);
+            font-weight: 600;
+            text-align: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .feature-card:hover .expand-indicator {
+            color: #ffffff;
+        }
+
+        .feature-card.expanded .expand-indicator {
+            transform: rotate(180deg);
+        }
+
+        .feature-card {
+            cursor: pointer;
+        }
+
         .references {
             padding: 100px 50px;
             background: rgba(0, 0, 0, 0.2);
@@ -446,6 +492,32 @@
                 display: none;
             }
 
+            /* 유튜브 영상 섹션 모바일 */
+            .video-section {
+                padding: 60px 20px 40px 20px;
+            }
+
+            .video-wrapper {
+                max-width: 100%;
+                margin: 30px auto 15px auto;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .video-wrapper iframe {
+                border-radius: 10px;
+            }
+
+            .video-wrapper:hover {
+                transform: none;
+            }
+
+            .video-caption {
+                font-size: 14px;
+                margin-top: 15px;
+                padding: 0 10px;
+            }
+
             /* 히어로 섹션 */
             .hero {
                 padding: 0 20px;
@@ -600,6 +672,20 @@
                 opacity: 0.9;
             }
 
+            .expand-indicator {
+                font-size: 12px;
+                margin-top: 12px;
+            }
+
+            .feature-detail.expanded {
+                max-height: 800px;
+            }
+
+            .feature-detail p {
+                font-size: 13px;
+                line-height: 1.6;
+            }
+
             /* 서비스 섹션 - 깔끔한 카드 디자인 */
             .services {
                 padding: 60px 20px;
@@ -713,6 +799,20 @@
 
         /* 매우 작은 화면 (480px 이하) */
         @media (max-width: 480px) {
+            .video-section {
+                padding: 50px 15px 30px 15px;
+            }
+
+            .video-wrapper {
+                margin: 25px auto 12px auto;
+                border-radius: 10px;
+            }
+
+            .video-caption {
+                font-size: 13px;
+                margin-top: 12px;
+            }
+
             .hero h1 {
                 font-size: 28px;
             }
@@ -749,6 +849,16 @@
                 line-height: 1.3;
             }
 
+            .expand-indicator {
+                font-size: 11px;
+                margin-top: 10px;
+            }
+
+            .feature-detail p {
+                font-size: 11px;
+                line-height: 1.5;
+            }
+
             .badge {
                 width: 28px;
                 height: 28px;
@@ -770,6 +880,55 @@
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* 유튜브 영상 섹션 */
+        .video-section {
+            padding: 100px 50px 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .video-container {
+            text-align: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 20px auto;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-wrapper:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(22, 119, 255, 0.3);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 18px;
+        }
+
+        .video-caption {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
         }
 
         /* Philosophy (우리의 철학) */
@@ -990,6 +1149,24 @@
             display: block;
         }
 
+        .ebook-cover {
+            width: 100%;
+            height: 100%;
+            max-width: 280px;
+            max-height: 400px;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .ebook-cover:hover {
+            transform: scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 215, 0, 0.3);
+        }
+
         .save-button {
             position: absolute;
             top: 10px;
@@ -1177,6 +1354,11 @@
                 height: 280px;
             }
 
+            .ebook-cover {
+                max-width: 200px;
+                max-height: 280px;
+            }
+
             .ebook-button {
                 padding: 16px 32px;
                 font-size: 16px;
@@ -1203,6 +1385,11 @@
             .ebook-placeholder {
                 width: 160px;
                 height: 220px;
+            }
+
+            .ebook-cover {
+                max-width: 160px;
+                max-height: 220px;
             }
         }
     </style>
@@ -1235,9 +1422,9 @@
         </div>
         <ul>
             <li><a href="#home">홈</a></li>
-            <li><a href="#features">특징</a></li>
-            <li><a href="#services">서비스</a></li>
+            <li><a href="#features">강점</a></li>
             <li><a href="#philosophy">철학</a></li>
+            <li><a href="#services">서비스</a></li>
             <li><a href="#references">레퍼런스</a></li>
             <li><a href="#ebook">무료 전자책</a></li>
             <li><a href="https://open.kakao.com/o/sPhnSkAh" target="_blank" rel="noopener noreferrer">문의하기</a></li>
@@ -1251,6 +1438,94 @@
             <p class="tagline">본질에만 충실할 수 있도록</p>
             <p>우리는 고객분들이 본질적인 가치에 집중할 수 있도록, 마케팅의 모든 것을 책임집니다. 전문성과 기술력을 바탕으로 최고의 성과를 만들어냅니다.</p>
             <button class="cta-button" onclick="window.open('https://tally.so/r/mBP0W5','_blank','noopener,noreferrer')">상담 신청하기</button>
+        </div>
+    </section>
+
+    <!-- 유튜브 영상 섹션 -->
+    <section class="video-section">
+        <div class="video-container fade-in">
+            <h2 class="section-title">True Campus 소개</h2>
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/uTfSOKfm8HU?autoplay=1&muted=1&loop=1&controls=1&modestbranding=1&rel=0&playsinline=1" 
+                    title="True Campus 소개 영상" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p class="video-caption">🎥 클릭하여 음성과 함께 시청하세요</p>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <h2 class="section-title fade-in">우리의 강점</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">🎓</div>
+                <h3>입시 전문가의 운영</h3>
+                <p class="feature-short">도합 7만 팔로워 입시 회사가 직접 운영</p>
+                <div class="feature-detail">
+                    <p>도합 7만 팔로워를 보유한 'ATP 입시 연구소'의 모든 전략을 적용해드립니다.<br><br>
+                    다른 업종과 다르게 학원의 고유한 특성을 살려 마케팅을 진행해 주위 학원, 강사보다 압도적인 성과를 경험해보세요.</p>
+            </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">🤖</div>
+                <h3>AI 자동화 구축</h3>
+                <p class="feature-short">최신 AI 기술로 학원 맞춤형 자동화 구현</p>
+                <div class="feature-detail">
+                    <p><strong>학생, 학부모 관리 자동화</strong><br>
+                    <strong>고객 응대 챗봇</strong><br>
+                    <strong>AI 기반 자료 생성, 마케팅 자동화 등</strong><br><br>
+                    고객 맞춤형 자동화로 효율을 극대화하여 시간을 아끼고 수업에만 전념할 수 있도록 지원합니다.</p>
+            </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">🎯</div>
+                <h3>최적화된 퍼널 구축</h3>
+                <p class="feature-short">온라인 마케팅의 최적화된 퍼널로 효율적인 고객 전환</p>
+                <div class="feature-detail">
+                    <p>팔로워 수보다 더 중요한 DB 마케팅 전략을 수집합니다.<br><br>
+                    구매 전환율을 높여 적은 시간으로 많은 수익을 창출해보세요.<br><br>
+                    <strong>고객사 평균 순이익 500만원 증가</strong> 노하우를 적용해드립니다.</p>
+            </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">📹</div>
+                <h3>웨비나 마케팅</h3>
+                <p class="feature-short">2시간 최고 1억 매출 경험을 바탕으로 고효율 마케팅 전략 제공</p>
+                <div class="feature-detail">
+                    <p>새학기 등 시즌별로 마케팅 전략을 적용하여 원생 모집을 효율적으로 진행합니다.<br><br>
+                    맞춤형 원생 모집 전략으로 골든 타임을 놓치지 마세요.</p>
+            </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">💯</div>
+                <h3>계약 연장률 100%</h3>
+                <p class="feature-short">모든 고객사가 재계약을 선택한 검증된 서비스 품질</p>
+                <div class="feature-detail">
+                    <p>단순 대행이 아니라 원장님, 강사님과 지속적인 관계를 구축하며 성장을 도모합니다.<br><br>
+                    고객의 SNS는 빠르게 성장중입니다.<br><br>
+                    단순 대행이 아닌 실제 학원에서 성공한 경험을 가진 전문가와 함께하세요.</p>
+            </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
+            <div class="feature-card fade-in" onclick="toggleFeatureDetail(this)">
+                <div class="icon">💬</div>
+                <h3>신속한 의사소통</h3>
+                <p class="feature-short">빠르고 명확한 커뮤니케이션으로 효율적인 협업</p>
+                <div class="feature-detail">
+                    <p>신속한 의사소통을 기반으로 빠른 피드백을 전달해드립니다.<br><br>
+                    특히, 관리 초반의 호흡이 매우 중요합니다.<br><br>
+                    SNS에 마음껏 질문하고 교육도 받아보세요.</p>
+                </div>
+                <div class="expand-indicator">더 보기 ▼</div>
+            </div>
         </div>
     </section>
 
@@ -1277,42 +1552,6 @@
                 <div class="badge">4</div>
                 <h3>입시 콘텐츠를 제공합니다</h3>
                 <p>TRUE CAMPUS는 입시 회사의 자회사입니다. 현업 인사이트로 최적화된 결과를 제공합니다.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="features" class="features">
-        <h2 class="section-title fade-in">우리의 강점</h2>
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <div class="icon">🎓</div>
-                <h3>입시 전문가의 운영</h3>
-                <p>입시 회사 대표가 직접 진행하여 학원 업계 이해도 제공</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="icon">🤖</div>
-                <h3>AI 자동화 구축</h3>
-                <p>최신 AI 기술을 활용한 마케팅 자동화로 효율성 극대화</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="icon">🎯</div>
-                <h3>최적화된 퍼널 구축</h3>
-                <p>온라인 마케팅의 최적화된 퍼널로 효율적인 고객 전환</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="icon">📹</div>
-                <h3>웨비나 마케팅</h3>
-                <p>2시간 최고 1억 매출 경험을 바탕으로 한 고효율 마케팅</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="icon">💯</div>
-                <h3>계약 연장률 100%</h3>
-                <p>모든 고객사가 재계약을 선택한 검증된 서비스 품질</p>
-            </div>
-            <div class="feature-card fade-in">
-                <div class="icon">💬</div>
-                <h3>신속한 의사소통</h3>
-                <p>빠르고 명확한 커뮤니케이션으로 효율적인 협업</p>
             </div>
         </div>
     </section>
@@ -1369,16 +1608,74 @@
             <h2 class="section-title fade-in">무료 전자책</h2>
             <div class="ebook-content fade-in">
                 <div class="ebook-image">
-                    <img src="" alt="0원으로 학원 마케팅 하기 전자책" id="ebookImage">
-                    <button class="save-button" id="saveButton" style="display: none;">💾 저장</button>
-                    <div class="ebook-placeholder">
-                        <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <div class="ebook-cover">
+                        <svg width="100%" height="100%" viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            
+                            <!-- 외부 배경 (어두운 회색) -->
+                            <rect width="300" height="400" fill="#3a3a3a" rx="15" ry="15"/>
+                            
+                            <!-- 내부 검은색 패널 -->
+                            <rect x="25" y="25" width="250" height="350" fill="#1a1a1a" rx="8" ry="8"/>
+                            
+                            <!-- 금색 테두리 -->
+                            <rect x="25" y="25" width="250" height="350" fill="none" stroke="#FFD700" stroke-width="2" rx="8" ry="8"/>
+                            
+                            <!-- 상단 건물 아이콘 (고전적 건축물) -->
+                            <g transform="translate(150, 55)">
+                                <!-- 기둥들 -->
+                                <rect x="-12" y="8" width="3" height="18" fill="#FFD700" rx="1"/>
+                                <rect x="-6" y="5" width="3" height="21" fill="#FFD700" rx="1"/>
+                                <rect x="0" y="8" width="3" height="18" fill="#FFD700" rx="1"/>
+                                <rect x="6" y="3" width="3" height="23" fill="#FFD700" rx="1"/>
+                                <rect x="12" y="6" width="3" height="20" fill="#FFD700" rx="1"/>
+                                
+                                <!-- 삼각형 지붕 -->
+                                <polygon points="-15,-2 0,-12 15,-2" fill="#FFD700"/>
+                            </g>
+                            
+                            <!-- 상단 구분선 -->
+                            <line x1="50" y1="85" x2="250" y2="85" stroke="#FFD700" stroke-width="1"/>
+                            
+                            <!-- 상단 텍스트 -->
+                            <text x="150" y="105" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="11" font-weight="300">0원으로 학원 마케팅</text>
+                            
+                            <!-- 메인 제목 -->
+                            <text x="150" y="170" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">SNS 브랜딩과</text>
+                            <text x="150" y="195" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">퍼널 설계</text>
+                            
+                            <!-- 하단 건물들 (도시 풍경) -->
+                            <g transform="translate(150, 240)">
+                                <rect x="-35" y="8" width="4" height="12" fill="#FFD700" rx="1"/>
+                                <rect x="-28" y="5" width="4" height="15" fill="#FFD700" rx="1"/>
+                                <rect x="-21" y="7" width="4" height="13" fill="#FFD700" rx="1"/>
+                                <rect x="-14" y="3" width="4" height="17" fill="#FFD700" rx="1"/>
+                                <rect x="-7" y="6" width="4" height="14" fill="#FFD700" rx="1"/>
+                                <rect x="0" y="4" width="4" height="16" fill="#FFD700" rx="1"/>
+                                <rect x="7" y="5" width="4" height="15" fill="#FFD700" rx="1"/>
+                                <rect x="14" y="2" width="4" height="18" fill="#FFD700" rx="1"/>
+                                <rect x="21" y="6" width="4" height="14" fill="#FFD700" rx="1"/>
+                                <rect x="28" y="4" width="4" height="16" fill="#FFD700" rx="1"/>
+                            </g>
+                            
+                            <!-- 하단 구분선 -->
+                            <line x1="50" y1="280" x2="250" y2="280" stroke="#FFD700" stroke-width="1"/>
+                            
+                            <!-- 저자 -->
+                            <text x="150" y="300" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="10" font-weight="300">장세환 지음</text>
+                            
+                            <!-- 인용문 -->
+                            <text x="150" y="325" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" font-style="italic">"결국 디지털 자산을</text>
+                            <text x="150" y="340" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" font-style="italic">얻은 강사만이</text>
+                            <text x="150" y="355" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" font-style="italic">생존할 수 있습니다"</text>
                         </svg>
-                        <p>전자책 이미지</p>
-                        <p style="font-size: 14px; margin-top: 10px; opacity: 0.8;">클릭하여 이미지 업로드</p>
                     </div>
+                    <button class="save-button" id="saveButton" style="display: none;">💾 저장</button>
                 </div>
                 <div class="ebook-info">
                     <h3>0원으로 학원 마케팅 하기</h3>
@@ -1416,7 +1713,6 @@
                             <path d="M20 21H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </button>
-                    <p class="ebook-note">📧 이메일 입력만으로 즉시 다운로드 가능합니다</p>
                 </div>
             </div>
         </div>
@@ -1435,6 +1731,25 @@
     </footer>
 
     <script>
+        // 강점 카드 토글 기능
+        function toggleFeatureDetail(card) {
+            const detail = card.querySelector('.feature-detail');
+            const isExpanded = card.classList.contains('expanded');
+            
+            // 모든 카드 닫기
+            document.querySelectorAll('.feature-card').forEach(c => {
+                c.classList.remove('expanded');
+                const d = c.querySelector('.feature-detail');
+                if (d) d.classList.remove('expanded');
+            });
+            
+            // 클릭한 카드만 열기 (이미 열려있던 것이 아니라면)
+            if (!isExpanded) {
+                card.classList.add('expanded');
+                detail.classList.add('expanded');
+            }
+        }
+
         // 모바일 감지 및 커서 효과 비활성화
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
         
@@ -1529,88 +1844,17 @@
             }
         });
 
-        // 전자책 이미지 업로드 기능
-        const ebookImage = document.getElementById('ebookImage');
-        const ebookPlaceholder = document.querySelector('.ebook-placeholder');
-        const saveButton = document.getElementById('saveButton');
-        const fileInput = document.createElement('input');
-        fileInput.type = 'file';
-        fileInput.accept = 'image/*';
-        fileInput.style.display = 'none';
-
-        // 파일 선택 시 이미지 업데이트
-        fileInput.addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    ebookImage.src = e.target.result;
-                    ebookImage.classList.add('show');
-                    ebookPlaceholder.style.display = 'none';
-                    saveButton.style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // 저장 버튼 클릭 시 이미지 다운로드
-        saveButton.addEventListener('click', function(e) {
-            e.stopPropagation(); // 이미지 클릭 이벤트 방지
+        // 전자책 표지 호버 효과
+        const ebookCover = document.querySelector('.ebook-cover');
+        if (ebookCover) {
+            ebookCover.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+            });
             
-            if (ebookImage.src) {
-                const link = document.createElement('a');
-                link.download = '전자책_이미지.png';
-                link.href = ebookImage.src;
-                link.click();
-                
-                // 저장 완료 알림
-                const originalText = saveButton.textContent;
-                saveButton.textContent = '✅ 저장됨';
-                saveButton.style.background = 'rgba(0, 150, 0, 0.8)';
-                
-                setTimeout(() => {
-                    saveButton.textContent = originalText;
-                    saveButton.style.background = 'rgba(0, 0, 0, 0.7)';
-                }, 2000);
-            }
-        });
-
-        // 이미지 영역 클릭 시 파일 선택
-        const ebookImageContainer = document.querySelector('.ebook-image');
-        ebookImageContainer.addEventListener('click', function() {
-            fileInput.click();
-        });
-
-        // 드래그 앤 드롭 기능
-        ebookImageContainer.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            ebookImageContainer.style.border = '2px dashed rgba(255,255,255,0.5)';
-        });
-
-        ebookImageContainer.addEventListener('dragleave', function(e) {
-            e.preventDefault();
-            ebookImageContainer.style.border = 'none';
-        });
-
-        ebookImageContainer.addEventListener('drop', function(e) {
-            e.preventDefault();
-            ebookImageContainer.style.border = 'none';
-            
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                const file = files[0];
-                if (file.type.startsWith('image/')) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        ebookImage.src = e.target.result;
-                        ebookImage.classList.add('show');
-                        ebookPlaceholder.style.display = 'none';
-                        saveButton.style.display = 'block';
-                    };
-                    reader.readAsDataURL(file);
-                }
-            }
-        });
+            ebookCover.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
     </script>
 
     <!-- YouTube floating button -->
